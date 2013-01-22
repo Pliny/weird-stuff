@@ -1,0 +1,24 @@
+# Use the README file as a reference to customize settings.
+
+AdminUser:
+  fields:
+    default: first_name, last_name, role, email, locale
+    list: email, role, status
+    form: first_name, last_name, role, email, password, password_confirmation, locale, status
+    options:
+      selectors: role, locale
+      booleans:
+        status: Active, Inactive
+  filters: status, role
+  search: first_name, last_name, email, role
+  application: Weird Stuff
+  description: Users Administration
+
+WeirdSite:
+  fields:
+    default: url, name
+    list: url, name
+    form: url, name
+  filters: created_at
+  search: url name
+  application: Weird Stuff
