@@ -12,7 +12,7 @@ describe WeirdSite do
   describe "validations" do
 
     it "should not allow urls larger than 512 characters" do
-      WeirdSite.new(url: 'h'*513).should have(1).error_on :url
+      WeirdSite.new(url: 'http://'+'h'*513+'.com').should have(1).error_on :url
     end
 
     it "should not allow the name to be larger than 64 characters" do
@@ -20,7 +20,7 @@ describe WeirdSite do
     end
 
     it "should require a url" do
-      WeirdSite.new.should have(1).error_on :url
+      WeirdSite.new.should have(2).error_on :url
     end
 
     it "should require a name" do
@@ -32,12 +32,12 @@ describe WeirdSite do
       WeirdSite.new(url: 'http://weirdstuff.com').should have(1).error_on :url
     end
 
-    it "should have a unique URL" do
+    it "should have a unique Name" do
       FactoryGirl.create(:weird_site, url: 'http://weirdstuff.com', name: 'Weird')
-      WeirdSite.new(name: 'Weird').should have(1).error_on :url
+      WeirdSite.new(name: 'Weird').should have(1).error_on :name
     end
 
-    pending "should have a valid URL" do
+    it "should have a valid URL" do
       WeirdSite.new(url: 'bad url').should have(1).error_on :url
     end
   end
