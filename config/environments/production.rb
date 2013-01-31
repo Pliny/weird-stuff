@@ -9,7 +9,7 @@ WeirdStuff::Application.configure do
   config.action_controller.perform_caching = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
-  config.serve_static_assets = true
+  config.serve_static_assets = false
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
@@ -23,6 +23,7 @@ WeirdStuff::Application.configure do
   config.assets.enabled = true
   config.assets.js_compressor = :uglifier
   config.assets.css_compressor = :yui
+  config.assets.initialize_on_precompile = false
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
@@ -47,7 +48,7 @@ WeirdStuff::Application.configure do
   # config.cache_store = :mem_cache_store
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server
-  config.action_controller.asset_host = "weird-stuff.herokuapp.com"
+  config.action_controller.asset_host = "//#{ENV['FOG_DIRECTORY']}.s3-website-us-east-1.amazonaws.com"
 
   # Precompile additional assets (application.js, application.css, and all non-JS/CSS are already added)
   # config.assets.precompile += %w( search.js )
