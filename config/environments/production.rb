@@ -23,7 +23,6 @@ WeirdStuff::Application.configure do
   config.assets.enabled = true
   config.assets.js_compressor = :uglifier
   config.assets.css_compressor = :yui
-  config.assets.initialize_on_precompile = false
 
   # Defaults to nil and saved in location specified by config.assets.prefix
   # config.assets.manifest = YOUR_PATH
