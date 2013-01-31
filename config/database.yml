@@ -10,5 +10,5 @@ test:
 
 production:
   adapter: postgresql
-  database: score-tracker_production
+  database: weird-stuff_production
   host: localhost
