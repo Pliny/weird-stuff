@@ -2,15 +2,11 @@ $color1: #ff0066;
 $color2: #66ff00;
 $color3: #421714;
 $default-font: 'georgia', serif;
+$angle-overlap: -55px;
 
 body {
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  height: 100%;
-  background-color: $color2;
   font-family: $default-font;
+  background-color: $color1;
 }
 
 #content {
@@ -20,41 +16,8 @@ body {
 
 header {
   padding-top: 147px;
-  padding-bottom: 132px;
+  padding-bottom: 0px;
   background-color: $color1;
-}
-
-#footer-left,#footer-right { background-color: $color2; }
-#footer-left,#footer-right { height: 256px; }
-#footer-left,#footer-right {
-  width: 50%;
-  float: left;
-}
-
-#footer-left {
-  -webkit-transform-origin: right bottom;
-  -ms-transform-origin: right bottom;
-  -moz-transform-origin: right bottom;
-  -o-transform-origin: right bottom;
-  transform-origin: right bottom;
-  -webkit-transform: rotate(14deg) scale(1.03) skewX(14deg) translateY(15px);
-  -o-transform: rotate(14deg) scale(1.03) skewX(14deg) translateY(15px);
-  -moz-transform: rotate(14deg) scale(1.03) skewX(14deg) translateY(15px);
-  -ms-transform: rotate(14deg) scale(1.03) skewX(14deg) translateY(15px);
-  transform: rotate(14deg) scale(1.03) skewX(14deg) translateY(15px);
-}
-
-#footer-right {
-  -webkit-transform-origin: left bottom;
-  -ms-transform-origin: left bottom;
-  -moz-transform-origin: left bottom;
-  -o-transform-origin: left bottom;
-  transform-origin: left bottom;
-  -webkit-transform: rotate(-14deg) scale(1.03) skewX(-14deg) translateY(15px);
-  -o-transform: rotate(-14deg) scale(1.03) skewX(-14deg) translateY(15px);
-  -moz-transform: rotate(-14deg) scale(1.03) skewX(-14deg) translateY(15px);
-  -ms-transform: rotate(-14deg) scale(1.03) skewX(-14deg) translateY(15px);
-  transform: rotate(-14deg) scale(1.03) skewX(-14deg) translateY(15px);
 }
 
 h3 {
@@ -76,4 +39,24 @@ h3 {
   width: 487px;
   height: 366px;
   display: inline-block;
+}
+
+#facebook-like {
+  position: relative;
+  top: 23px;
+  left: 200px;
+}
+
+#angle-container {
+  height: 139px;
+  position: relative;
+  top: $angle-overlap;
+  background: image-url('angle.svg'), 0 0 no-repeat;
+}
+
+footer {
+  height: 100%;
+  background-color: $color2;
+  position: relative;
+  top: $angle-overlap;
 }
