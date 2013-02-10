@@ -5,21 +5,45 @@ $fb-like-bg-color1: #eceef5;
 $fb-like-bg-color2: #f4f6ff;
 $fb-like-color: #5571a9;
 $default-font: 'georgia', serif;
-$angle-overlap: -55px;
+$angle-overlap: -76px;
+
+.spacing1 {
+  margin-right: 15px;
+}
 
 body {
   font-family: $default-font;
-  background-color: $color1;
-}
-
-#content {
-  height: 928px;
+  background-color: black;
   text-align: center;
 }
 
+#content {
+  width: 1024px;
+  max-height: 768px;
+  display: inline-block;
+  background-color: $color2;
+}
+
+#nav {
+  height: 33px;
+  margin-bottom: 32px;
+}
+
+#share-facebook,#share-twitter {
+  float: right;
+  opacity: 0.5;
+  height: 33px;
+  width: 33px;
+}
+#share-facebook {
+  background: image-url('Button_facebook_overlay_highscorescreen.png') no-repeat center center;
+}
+#share-twitter {
+  background: image-url('Button_twitter_highscorescreen_overlay.png')  no-repeat center center;
+}
+
 header {
-  padding-top: 147px;
-  padding-bottom: 0px;
+  padding: 24px 30px;
   background-color: $color1;
 }
 
@@ -60,7 +84,7 @@ h3 {
 }
 
 footer {
-  height: 100%;
+  min-height: 96px;
   background-color: $color2;
   position: relative;
   top: $angle-overlap;
@@ -87,7 +111,6 @@ footer {
   text-align: center;
   vertical-align: middle;
   line-height: 36px;
-  margin-top: 12px;
   font-weight: bold;
   font-size: 1.33em;
 }
