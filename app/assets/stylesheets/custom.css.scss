@@ -35,7 +35,7 @@ h3 {
 }
 
 #description {
-  background: image-url('likeweirdstuff-logo.png'), no-repeat center center;
+  background: image-url('likeweirdstuff-logo.png') no-repeat center center;
   width: 487px;
   height: 366px;
   display: inline-block;
@@ -51,7 +51,9 @@ h3 {
   height: 139px;
   position: relative;
   top: $angle-overlap;
-  background: image-url('angle.svg'), 0 0 no-repeat;
+  background: image-url('angle.svg');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 
 footer {
