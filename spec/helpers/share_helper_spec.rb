@@ -18,7 +18,7 @@ describe ShareHelper do
     it { should respond_to :twitter_share_url }
 
     it "should return a twitter url" do
-      twitter_share_url.should include "http://www.twitter.com"
+      twitter_share_url.should include "https://twitter.com/share?url=http%3A%2F%2Ftest.host%2F&text=Anyone+else+want+to+like+weird+stuff%3F"
     end
   end
 end
