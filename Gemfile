@@ -38,6 +38,7 @@ group :test do
   gem 'factory_girl_rails'
 end
 
+gem "kaminari"
 gem 'jquery-rails'
 gem 'rspec-rails'
 gem 'haml'
