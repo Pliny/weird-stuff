@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :weird_site do
     sequence(:url) { |n| "http://someweirdsite#{n}.com" }
-    sequence(:name) { "Totally Weird #{n}" }
+    sequence(:name) { |n| "Totally Weird #{n}" }
   end
 end
 

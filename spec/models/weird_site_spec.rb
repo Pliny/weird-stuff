@@ -41,4 +41,12 @@ describe WeirdSite do
       WeirdSite.new(url: 'bad url').should have(1).error_on :url
     end
   end
+
+  describe ".random" do
+
+    it "should return a random weird site" do
+      WeirdSite.should_receive(:first).once.with(order: "RANDOM()").and_return(FactoryGirl.create(:weird_site))
+      WeirdSite.random
+    end
+  end
 end

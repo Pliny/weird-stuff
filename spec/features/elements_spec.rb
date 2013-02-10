@@ -6,9 +6,12 @@ describe "Elements" do
 
   describe "index" do
 
-    before { visit root_path }
+    before do
+      @site = FactoryGirl.create(:weird_site)
+      visit root_path
+    end
 
     it { should have_selector('#fb-root') }
-    it { should have_selector('#facebook-like') }
+    it { should have_selector("#facebook-like[data-href=\"#{@site.url}\"]") }
   end
 end
