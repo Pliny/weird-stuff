@@ -5,6 +5,12 @@
     =stylesheet_link_tag    "application", media: "all"
     =javascript_include_tag "application"
     =csrf_meta_tags
+    -# Search
+    %meta{ property: "description",    content: "Do you have the balls to like weird stuff?" }
+    -# Facebook
+    %meta{ property: "og:title",       content: "Like Weird Stuff" }
+    %meta{ property: "og:image",       content: "#{root_url}/assets/likeweirdstuff_thumb.jpg" }
+    %meta{ property: "og:description", content: "Do you have the balls??" }
     <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->

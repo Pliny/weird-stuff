@@ -7,9 +7,9 @@ $fb-like-color: #5571a9;
 $default-font: 'georgia', serif;
 $angle-overlap: -76px;
 
-.spacing1 {
-  margin-right: 15px;
-}
+.spacing1 { margin-right: 15px; }
+.right { float: right; }
+ul { list-style-type: none; }
 
 body {
   font-family: $default-font;
@@ -24,13 +24,12 @@ body {
   background-color: $color2;
 }
 
-#nav {
+#nav-container {
   height: 33px;
   margin-bottom: 32px;
 }
 
 #share-facebook,#share-twitter {
-  float: right;
   opacity: 0.5;
   height: 33px;
   width: 33px;
