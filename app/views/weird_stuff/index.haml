@@ -6,3 +6,5 @@
 #angle-container
 %footer
   #facebook-like.fb-like{ :'data-href' => @weird_site.url, :'data-send' => "false", :'data-width' => 450, :'data-show-faces'=> "false" }
+  = form_for :skip do |f|
+    = f.submit "SKIP", class: "ws-btn" if @admin.present?

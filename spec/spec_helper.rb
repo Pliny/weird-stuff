@@ -94,3 +94,14 @@ def login role=nil
   end
   user
 end
+
+def integration_login role=nil
+  if role == :admin
+    user = FactoryGirl.create(:admin_user)
+    visit new_admin_session_url
+    fill_in      "Email",    with: user.email
+    fill_in      "Password", with: user.password
+    click_button "Sign in"
+  end
+  user
+end
