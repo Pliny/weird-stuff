@@ -23,4 +23,5 @@ guard 'spork', :cucumber => false, :cucumber_env => { 'RAILS_ENV' => 'test' }, :
   watch(%r{spec/support/.+\.rb}) { :rspec }
   watch(%r{features/support/}) { :cucumber }
   watch(%r{^config/locales/.+\.yml$})
+  watch('spec/factories.rb')
 end
