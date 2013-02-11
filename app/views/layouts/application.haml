@@ -16,15 +16,7 @@
     <![endif]-->
   %body
     #fb-root
-    :javascript
-      (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=506085299442621";
-        fjs.parentNode.insertBefore(js, fjs);
-      }(document, 'script', 'facebook-jssdk'));
     - if @admin.present?
-      #admin-notification="Hi #{@admin.first_name}, press 'SKIP' to go to the next page"
-    #content
+      #admin-notification.bg-color2="Hi #{@admin.first_name}, press 'SKIP' to go to the next page"
+    #content.bg-color2{ :'url-for-next' => root_url }
       = yield

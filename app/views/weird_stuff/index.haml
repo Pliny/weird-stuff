@@ -1,16 +1,24 @@
-%header
-  #nav-container
-    %ul
-      %li
-        %a#share-twitter.right{ href: twitter_share_url }
-      %li
-        %a#share-facebook.right.spacing1{ href: facebook_share_url, target: "_blank" }
-  #description
-  #subtitle
-    %h3="Do you have the balls"
-    %h3="to like it?"
-#angle-container
-%footer
-  #facebook-like.fb-like{ :'data-href' => @weird_site.url, :'data-send' => "false", :'data-width' => 450, :'data-show-faces'=> "false" }
-  = form_for :skip do |f|
-    = f.submit "SKIP", class: "ws-btn" if @admin.present?
+.page
+  :javascript
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) return;
+      js = d.createElement(s); js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=506085299442621";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  %header.bg-color1
+    .nav-container
+      %ul
+        %li
+          %a.share-twitter.right{ href: twitter_share_url }
+        %li
+          %a.share-facebook.right.spacing1{ href: facebook_share_url, target: "_blank" }
+    .initial-description
+    .subtitle
+      %h3="Do you have the balls"
+      %h3="to like it?"
+  .angle-container
+  %footer.bg-color2
+    .facebook-like.fb-like{ :'data-href' => @weird_site.url, :'data-send' => "false", :'data-width' => 450, :'data-show-faces'=> "false" }
+    = button_to("SKIP", { action: 'skip' }, method: :get, remote: true, class: "ws-btn", form_class: "ws-form admin-skip") if @admin.present?

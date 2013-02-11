@@ -4,9 +4,20 @@ describe WeirdStuffController do
 
   describe "GET 'index'" do
 
-    it "should be success" do
-      get :index
-      response.should be_success
+    describe "synchronously" do
+
+      it "should be success" do
+        get :index
+        response.should be_success
+      end
+    end
+
+    describe "asynchronously" do
+
+      it "should be success" do
+        xhr :get, :index
+        response.should be_success
+      end
     end
 
     it "should set a random weird page to like" do
@@ -21,4 +32,11 @@ describe WeirdStuffController do
     end
   end
 
+  describe "GET 'skip'" do
+
+    it "should be success" do
+      get :skip
+      response.should be_success
+    end
+  end
 end

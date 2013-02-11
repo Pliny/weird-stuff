@@ -15,8 +15,9 @@ describe "Elements" do
       before { visit root_path }
 
       it { should have_selector('#fb-root') }
-      it { should have_selector("#facebook-like[data-href=\"#{@site.url}\"]") }
-      it { should_not have_selector("form > input[type=\"submit\"]") }
+      it { should have_selector(".facebook-like[data-href=\"#{@site.url}\"]") }
+      it { should have_selector(".page") }
+      it { should_not have_selector("form input[type=\"submit\"]") }
       it { should_not have_selector("#admin-notification") }
     end
 
@@ -27,7 +28,7 @@ describe "Elements" do
         visit root_path
       end
 
-      it { should have_selector("form > input[type=\"submit\"]") }
+      it { should have_selector("form input[type=\"submit\"]") }
       it { should have_selector("#admin-notification") }
     end
   end

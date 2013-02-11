@@ -8,8 +8,13 @@ $default-font: 'georgia', serif;
 $angle-overlap: -76px;
 
 .spacing1 { margin-right: 15px; }
+
 .right { float: right; }
+
 ul { list-style-type: none; }
+
+.bg-color1 { background-color: $color1; }
+.bg-color2 { background-color: $color2; }
 
 body {
   font-family: $default-font;
@@ -17,33 +22,26 @@ body {
   text-align: center;
 }
 
-#content {
-  width: 100%;
-  max-height: 768px;
-  background-color: $color2;
-}
+#content { width: 100%; }
 
-#nav-container {
+.nav-container {
   height: 33px;
   margin-bottom: 32px;
 }
 
-#share-facebook,#share-twitter {
+.share-facebook,.share-twitter {
   opacity: 0.5;
   height: 33px;
   width: 33px;
 }
-#share-facebook {
+.share-facebook {
   background: image-url('Button_facebook_overlay_highscorescreen.png') no-repeat center center;
 }
-#share-twitter {
+.share-twitter {
   background: image-url('Button_twitter_highscorescreen_overlay.png')  no-repeat center center;
 }
 
-header {
-  padding: 24px 30px;
-  background-color: $color1;
-}
+header { padding: 24px 30px; }
 
 h3 {
   color: $color3;
@@ -55,24 +53,24 @@ h3 {
   line-height: 125%;
 }
 
-#subtitle {
+.subtitle {
   margin-top: 36px;
 }
 
-#description {
+.initial-description {
   background: image-url('likeweirdstuff-logo.png') no-repeat center center;
   width: 487px;
   height: 366px;
   display: inline-block;
 }
 
-#facebook-like {
+.facebook-like {
   position: relative;
   top: 23px;
   left: 200px;
 }
 
-#angle-container {
+.angle-container {
   height: 139px;
   position: relative;
   top: $angle-overlap;
@@ -88,6 +86,8 @@ footer {
   top: $angle-overlap;
 }
 
+.ws-form { margin-top: 42px; }
+
 .ws-btn {
   width: 50px;
   height: 24px;
@@ -95,7 +95,6 @@ footer {
   color: $fb-like-color;
   border-radius: 2px;
   border: none;
-  margin-top: 42px;
 }
 
 .ws-btn:active {
@@ -104,8 +103,6 @@ footer {
 }
 
 #admin-notification {
-  background-color: $color2;
-  color: $color1;
   text-align: center;
   vertical-align: middle;
   line-height: 36px;
