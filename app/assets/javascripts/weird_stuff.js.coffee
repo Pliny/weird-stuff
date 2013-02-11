@@ -1,9 +1,17 @@
-$(document).on('ready', disableSharingLinks )
 
 disableSharingLinks = () ->
   $('.share-twitter,.share-facebook').each( (index, $link) ->
     $link.onclick = () -> return false
   )
+
+weirdSiteLiked = (data, status, xhr) ->
+  # $('#facebook-like').remove()
+  # $('#fb-root').children().remove()
+  $('#content').append(data)
+  disableSharingLinks()
+  window.animateScrollTo($('.page').last())
+
+$(document).on('ready', disableSharingLinks )
 
 $(document).on('click', '.share-twitter,.share-facebook', () ->
   left = window.screenX + 256
@@ -21,9 +29,3 @@ $(document).on('ajax:success', '.admin-skip', (evt, data, status, xhr) ->
   })
 )
 
-weirdSiteLiked = (data, status, xhr) ->
-  # $('#facebook-like').remove()
-  # $('#fb-root').children().remove()
-  $('#content').append(data)
-  disableSharingLinks()
-  window.animateScrollTo($('.page').last())
