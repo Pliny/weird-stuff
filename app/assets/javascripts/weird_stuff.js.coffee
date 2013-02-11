@@ -25,6 +25,5 @@ weirdSiteLiked = (data, status, xhr) ->
   # $('#facebook-like').remove()
   # $('#fb-root').children().remove()
   $('#content').append(data)
-  facebookConnect(document, 'script', 'facebook-jssdk')
   disableSharingLinks()
   window.animateScrollTo($('.page').last())
