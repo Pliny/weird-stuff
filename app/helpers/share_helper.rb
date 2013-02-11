@@ -5,6 +5,6 @@ module ShareHelper
   end
 
   def twitter_share_url
-    "https://twitter.com/share?url=#{CGI.escape root_url}&text=#{CGI.escape "Anyone else want to like weird stuff? #{root_url}" }"
+    "https://twitter.com/share?url=#{CGI.escape root_url}&text=#{CGI.escape "Anyone else want to like weird stuff?" }"
   end
 end
