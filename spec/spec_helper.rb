@@ -86,6 +86,10 @@ RSpec.configure do |config|
   config.order = "random"
 end
 
+Capybara.configure do |config|
+  config.javascript_driver = :webkit
+end
+
 def login role=nil
   if role == :admin
     user = FactoryGirl.create(:admin_user)
@@ -98,10 +102,12 @@ end
 def integration_login role=nil
   if role == :admin
     user = FactoryGirl.create(:admin_user)
-    visit new_admin_session_url
+    visit new_admin_session_path
+    find("#typus_user_email")
     fill_in      "Email",    with: user.email
     fill_in      "Password", with: user.password
     click_button "Sign in"
+    find(".profile li", text: 'Logged in as ')
   end
   user
 end

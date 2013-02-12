@@ -36,6 +36,8 @@ group :test do
   gem 'timecop'
   gem 'database_cleaner'
   gem 'factory_girl_rails'
+  gem 'capybara-webkit'
+  gem 'launchy'
 end
 
 gem "kaminari"
