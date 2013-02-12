@@ -19,6 +19,9 @@ describe "Elements" do
       it { should have_selector(".page") }
       it { should_not have_selector("form input[type=\"submit\"]") }
       it { should_not have_selector("#admin-notification") }
+
+      it { should have_selector('.initial-description') }
+      it { should_not have_selector('.description') }
     end
 
     describe "with admin privileges" do
@@ -49,6 +52,27 @@ describe "Elements" do
         it "should work with capybara-webkit" do
           click_button "SKIP"
           find('.page+.page')
+        end
+
+        it "should change color schemes on every 'like'" do
+          el = find('.page')
+          el.should     have_selector("header.bg-color00")
+          el.should     have_selector("footer.bg-color01")
+          el.should_not have_selector("header.bg-color01")
+          el.should_not have_selector("footer.bg-color02")
+
+          click_button "SKIP"
+
+          el = find('.page+.page')
+          el.should have_selector("header.bg-color01")
+          el.should have_selector("footer.bg-color02")
+          el.should have_selector(".description.color00")
+        end
+
+        it "should have the description styling when not on initial page" do
+          click_button "SKIP"
+          find('.page+.page').should have_selector('.description')
+          subject.should_not have_selector('.page:last-child .initial-description')
         end
       end
     end

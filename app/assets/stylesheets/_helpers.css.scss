@@ -1,0 +1,108 @@
+
+$color00: #ff0066;
+$color01: #66ff00;
+$color02: #0099ff;
+$color03: #ffff00;
+$color04: #6666cc;
+$color05: #999999;
+$color06: #ff6666;
+$color07: #33ffcc;
+$color08: #ff6600;
+$color09: #ffffff;
+$color10: #99cc33;
+$color11: #333333;
+$color12: #ff0000;
+$color13: #ffff00;
+
+$default-color: #421714;
+
+$fb-like-bg-color1: #eceef5;
+$fb-like-bg-color2: #f4f6ff;
+$fb-like-color: #5571a9;
+$default-font: 'georgia', serif;
+$angle-overlap: -76px;
+
+.spacing1 { margin-right: 15px; }
+.right { float: right; }
+
+.bg-color00 { background-color: $color00; }
+.bg-color01 { background-color: $color01; }
+.bg-color02 { background-color: $color02; }
+.bg-color03 { background-color: $color03; }
+.bg-color04 { background-color: $color04; }
+.bg-color05 { background-color: $color05; }
+.bg-color06 { background-color: $color06; }
+.bg-color07 { background-color: $color07; }
+.bg-color08 { background-color: $color08; }
+.bg-color09 { background-color: $color09; }
+.bg-color10 { background-color: $color10; }
+.bg-color11 { background-color: $color11; }
+.bg-color12 { background-color: $color12; }
+.bg-color13 { background-color: $color13; }
+
+.initial-color { color: $default-color; }
+.color00 { color: $color00; }
+.color01 { color: $color01; }
+.color02 { color: $color02; }
+.color03 { color: $color03; }
+.color04 { color: $color04; }
+.color05 { color: $color05; }
+.color06 { color: $color06; }
+.color07 { color: $color07; }
+.color08 { color: $color08; }
+.color09 { color: $color09; }
+.color10 { color: $color10; }
+.color11 { color: $color11; }
+.color12 { color: $color12; }
+.color13 { color: $color13; }
+
+// .angle00 { background: image-url("<object type=\"image/svg+xml\" data=\"angle.svg?color1=#{$color00}&color2=#{$color01}\"></object>"); }
+
+.angle00 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color00}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color01}\"/> </svg>"); }
+.angle01 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color01}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color02}\"/> </svg>"); }
+.angle02 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color02}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color03}\"/> </svg>"); }
+.angle03 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color03}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color04}\"/> </svg>"); }
+.angle04 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color04}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color05}\"/> </svg>"); }
+.angle05 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color05}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color06}\"/> </svg>"); }
+.angle06 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color06}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color07}\"/> </svg>"); }
+.angle07 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color07}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color08}\"/> </svg>"); }
+.angle08 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color08}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color09}\"/> </svg>"); }
+.angle09 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color09}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color10}\"/> </svg>"); }
+.angle10 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color10}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color11}\"/> </svg>"); }
+.angle11 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color11}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color12}\"/> </svg>"); }
+.angle12 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color12}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color13}\"/> </svg>"); }
+.angle13 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color13}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color00}\"/> </svg>"); }
+
+.initial-share-facebook { background: image-url('Button_facebook_startscreen.png') no-repeat center center; }
+.share-facebook00 { background: image-url('Button_facebook_ff0066.png') no-repeat center center }
+.share-facebook01 { background: image-url('Button_facebook_66ff00.png') no-repeat center center }
+.share-facebook02 { background: image-url('Button_facebook_0099ff.png') no-repeat center center }
+.share-facebook03 { background: image-url('Button_facebook_ffff00.png') no-repeat center center }
+.share-facebook04 { background: image-url('Button_facebook_6666cc.png') no-repeat center center }
+.share-facebook05 { background: image-url('Button_facebook_999999.png') no-repeat center center }
+.share-facebook06 { background: image-url('Button_facebook_ff6666.png') no-repeat center center }
+.share-facebook07 { background: image-url('Button_facebook_33ffcc.png') no-repeat center center }
+.share-facebook08 { background: image-url('Button_facebook_ff6600.png') no-repeat center center }
+.share-facebook09 { background: image-url('Button_facebook_ffffff.png') no-repeat center center }
+.share-facebook10 { background: image-url('Button_facebook_99cc33.png') no-repeat center center }
+.share-facebook11 { background: image-url('Button_facebook_333333.png') no-repeat center center }
+.share-facebook12 { background: image-url('Button_facebook_ff0000.png') no-repeat center center }
+.share-facebook13 { background: image-url('Button_facebook_ffff00.png') no-repeat center center }
+
+.initial-share-twitter  { background: image-url('Button_twitter_startscreen.png')  no-repeat center center; }
+.share-twitter00 { background: image-url('Button_twitter_ff0066.png') no-repeat center center }
+.share-twitter01 { background: image-url('Button_twitter_66ff00.png') no-repeat center center }
+.share-twitter02 { background: image-url('Button_twitter_0099ff.png') no-repeat center center }
+.share-twitter03 { background: image-url('Button_twitter_ffff00.png') no-repeat center center }
+.share-twitter04 { background: image-url('Button_twitter_6666cc.png') no-repeat center center }
+.share-twitter05 { background: image-url('Button_twitter_999999.png') no-repeat center center }
+.share-twitter06 { background: image-url('Button_twitter_ff6666.png') no-repeat center center }
+.share-twitter07 { background: image-url('Button_twitter_33ffcc.png') no-repeat center center }
+.share-twitter08 { background: image-url('Button_twitter_ff6600.png') no-repeat center center }
+.share-twitter09 { background: image-url('Button_twitter_ffffff.png') no-repeat center center }
+.share-twitter10 { background: image-url('Button_twitter_99cc33.png') no-repeat center center }
+.share-twitter11 { background: image-url('Button_twitter_333333.png') no-repeat center center }
+.share-twitter12 { background: image-url('Button_twitter_ff0000.png') no-repeat center center }
+.share-twitter13 { background: image-url('Button_twitter_ffff00.png') no-repeat center center }
+
+

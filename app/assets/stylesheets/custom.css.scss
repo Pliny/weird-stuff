@@ -1,25 +1,12 @@
-$color1: #ff0066;
-$color2: #66ff00;
-$color3: #421714;
-$fb-like-bg-color1: #eceef5;
-$fb-like-bg-color2: #f4f6ff;
-$fb-like-color: #5571a9;
-$default-font: 'georgia', serif;
-$angle-overlap: -76px;
-
-.spacing1 { margin-right: 15px; }
-
-.right { float: right; }
+@import "helpers";
 
 ul { list-style-type: none; }
-
-.bg-color1 { background-color: $color1; }
-.bg-color2 { background-color: $color2; }
 
 body {
   font-family: $default-font;
   background-color: black;
   text-align: center;
+  margin: 0;
 }
 
 #content { width: 100%; }
@@ -29,22 +16,15 @@ body {
   margin-bottom: 32px;
 }
 
-.share-facebook,.share-twitter {
-  opacity: 0.5;
+.share {
   height: 33px;
   width: 33px;
-}
-.share-facebook {
-  background: image-url('Button_facebook_overlay_highscorescreen.png') no-repeat center center;
-}
-.share-twitter {
-  background: image-url('Button_twitter_highscorescreen_overlay.png')  no-repeat center center;
 }
 
 header { padding: 24px 30px; }
 
 h3 {
-  color: $color3;
+  color: $default-color;
   font-size: 2.33em;
   padding: 0;
   margin: 0;
@@ -64,6 +44,14 @@ h3 {
   display: inline-block;
 }
 
+.description {
+  width: 487px;
+  height: 266px;
+  font-size: 4em;
+  display: inline-block;
+  padding-top: 100px;
+}
+
 .facebook-like {
   position: relative;
   top: 23px;
@@ -74,14 +62,16 @@ h3 {
   height: 139px;
   position: relative;
   top: $angle-overlap;
-  background: image-url('angle.svg');
   background-repeat: no-repeat;
   background-size: 100% 100%;
 }
 
+.angle-area {
+  height: 139px;
+}
+
 footer {
   min-height: 96px;
-  background-color: $color2;
   position: relative;
   top: $angle-overlap;
 }

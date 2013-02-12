@@ -30,13 +30,38 @@ describe WeirdStuffController do
       subject.should_receive(:admin_user).once.and_return(nil)
       get :index
     end
+
+    it "should initialize the cookie state" do
+      get :index
+      response.cookies['page'].should == 0.to_s
+    end
   end
 
   describe "GET 'skip'" do
 
-    it "should be success" do
-      get :skip
-      response.should be_success
+    describe "admin user" do
+
+      before { login :admin }
+
+      it "should be success" do
+        get :skip
+        response.should be_success
+      end
+
+      it "should increment the page index after skipping a 'like'" do
+        request.cookies['page'] = 1.to_s
+        get :skip
+        response.cookies['page'].should == 2.to_s
+      end
     end
+
+    describe "unknown user" do
+
+      it "should redirect to root page" do
+        get :skip
+        response.should redirect_to root_path
+      end
+    end
+
   end
 end

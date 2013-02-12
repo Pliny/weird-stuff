@@ -17,6 +17,6 @@
   %body
     #fb-root
     - if @admin.present?
-      #admin-notification.bg-color2="Hi #{@admin.first_name}, press 'SKIP' to go to the next page"
-    #content.bg-color2{ :'url-for-next' => root_url }
+      #admin-notification.bg-color01="Hi #{@admin.first_name}, press 'SKIP' to go to the next page"
+    #content{ :'url-for-next' => root_url }
       = yield
