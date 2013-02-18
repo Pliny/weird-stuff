@@ -14,7 +14,8 @@ $(document).on('ready', () ->
       if( factor >= 1 )
         clearInterval(timer)                   # stop animation
         factor = 1                             # clip to max 1.0
-      y = factor * delta + offset
+      diff = (1/(1+Math.exp(-(-7+14*factor))))
+      y = diff * delta + offset
       window.scrollBy(0, y - window.pageYOffset)
 
     timer = setInterval(step, 20)
