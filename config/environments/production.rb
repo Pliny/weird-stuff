@@ -70,5 +70,5 @@ WeirdStuff::Application.configure do
   # config.active_record.auto_explain_threshold_in_seconds = 0.5
 
   # Default URL
-  config.action_mailer.default_url_options = { :host => 'weird-stuff.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'likeweirdstuff.com' }
 end
