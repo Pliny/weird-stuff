@@ -29,7 +29,8 @@
     -#   %path{ d: "m0 139 h1024 v-139 l-512 139 l-512 -139 z", fill: "#66ff00" }
   .footer-area{ class: bg_color_of(@page)[:footer] }
     %footer{ class: bg_color_of(@page)[:footer] }
-      .facebook-like.fb-like{ :'data-href' => @weird_site.url, :'data-send' => "false", :'data-width' => 450, :'data-show-faces'=> "false" }
+      .fb-like
+        .facebook-like.fb-like{ :'data-href' => @weird_site.url, :'data-send' => "false", :'data-width' => 450, :'data-show-faces'=> "false" }
       - if @admin.present?
         .admin-form
           = button_to("SKIP", { action: 'skip' }, method: :get, remote: true, class: "ws-btn", form_class: "ws-form inline admin-skip")
