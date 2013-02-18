@@ -62,6 +62,33 @@ describe WeirdStuffController do
         response.should redirect_to root_path
       end
     end
+  end
 
+  describe "GET 'reset'" do
+
+    describe "admin user" do
+
+      before { login :admin }
+
+      it "should redirect to the root page" do
+        get :reset
+        response.should redirect_to root_path
+      end
+
+      it "should reset the cookie state" do
+        request.cookies[:page] = 5.to_s
+        get :reset
+        response.cookies.keys.should include 'page'
+        response.cookies['page'].should be_nil
+      end
+    end
+
+    describe "unknown user" do
+
+      it "should redirect to root page and not change state" do
+        get :reset
+        response.should redirect_to root_path
+      end
+    end
   end
 end

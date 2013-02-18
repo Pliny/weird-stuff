@@ -17,4 +17,8 @@ class ApplicationController < ActionController::Base
   def require_admin
     redirect_to root_path unless admin_user.present?
   end
+
+  def reset_state
+    cookies[:page] = nil
+  end
 end

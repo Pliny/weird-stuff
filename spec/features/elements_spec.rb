@@ -31,13 +31,14 @@ describe "Elements" do
         visit root_path
       end
 
-      it { should have_selector("form input[type=\"submit\"]") }
+      it { should have_selector("form input[type=\"submit\"][value=\"SKIP\"]") }
       it { should have_selector("#admin-notification") }
+      it { should have_selector("form input[type=\"submit\"][value=\"RESET\"]")}
 
       describe "and javascript enabled", js: true do
         self.use_transactional_fixtures = false
 
-        before { find(".ws-btn") }
+        before { find(".admin-form") }
 
         after do
           # Do not delete data in schema table

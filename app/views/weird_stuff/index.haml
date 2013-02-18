@@ -30,4 +30,7 @@
   .footer-area{ class: bg_color_of(@page)[:footer] }
     %footer{ class: bg_color_of(@page)[:footer] }
       .facebook-like.fb-like{ :'data-href' => @weird_site.url, :'data-send' => "false", :'data-width' => 450, :'data-show-faces'=> "false" }
-      = button_to("SKIP", { action: 'skip' }, method: :get, remote: true, class: "ws-btn", form_class: "ws-form admin-skip") if @admin.present?
+      - if @admin.present?
+        .admin-form
+          = button_to("SKIP", { action: 'skip' }, method: :get, remote: true, class: "ws-btn", form_class: "ws-form inline admin-skip")
+          = button_to("RESET", { action: 'reset' }, method: :get, class: "ws-btn", form_class: "ws-form inline")
