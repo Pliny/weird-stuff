@@ -57,22 +57,20 @@ $angle-overlap: -76px;
 .color12 { color: $color12; }
 .color13 { color: $color13; }
 
-// .angle00 { background: image-url("<object type=\"image/svg+xml\" data=\"angle.svg?color1=#{$color00}&color2=#{$color01}\"></object>"); }
-
-.angle00 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color00}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color01}\"/> </svg>"); }
-.angle01 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color01}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color02}\"/> </svg>"); }
-.angle02 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color02}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color03}\"/> </svg>"); }
-.angle03 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color03}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color04}\"/> </svg>"); }
-.angle04 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color04}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color05}\"/> </svg>"); }
-.angle05 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color05}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color06}\"/> </svg>"); }
-.angle06 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color06}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color07}\"/> </svg>"); }
-.angle07 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color07}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color08}\"/> </svg>"); }
-.angle08 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color08}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color09}\"/> </svg>"); }
-.angle09 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color09}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color10}\"/> </svg>"); }
-.angle10 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color10}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color11}\"/> </svg>"); }
-.angle11 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color11}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color12}\"/> </svg>"); }
-.angle12 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color12}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color13}\"/> </svg>"); }
-.angle13 { background: url("data:image/svg+xml;utf8,<svg width=\"100%\" height=\"100%\" xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 1024 139\" preserveAspectRatio=\"none\"> <path d=\"m250 76 h500 l-250 70 z\" fill=\"#{$color13}\"/> <path d=\"m0 139 h1024 v-139 l-512 139 l-512 -139 z\" fill=\"#{$color00}\"/> </svg>"); }
+.angle00 { fill: $color00; stroke: $color00; }
+.angle01 { fill: $color01; stroke: $color01; }
+.angle02 { fill: $color02; stroke: $color02; }
+.angle03 { fill: $color03; stroke: $color03; }
+.angle04 { fill: $color04; stroke: $color04; }
+.angle05 { fill: $color05; stroke: $color05; }
+.angle06 { fill: $color06; stroke: $color06; }
+.angle07 { fill: $color07; stroke: $color07; }
+.angle08 { fill: $color08; stroke: $color08; }
+.angle09 { fill: $color09; stroke: $color09; }
+.angle10 { fill: $color10; stroke: $color10; }
+.angle11 { fill: $color11; stroke: $color11; }
+.angle12 { fill: $color12; stroke: $color12; }
+.angle13 { fill: $color13; stroke: $color13; }
 
 .initial-share-facebook { background: image-url('Button_facebook_startscreen.png') no-repeat center center; }
 .share-facebook00 { background: image-url('Button_facebook_ff0066.png') no-repeat center center }
