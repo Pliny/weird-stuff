@@ -35,6 +35,12 @@ describe WeirdStuffController do
       get :index
       response.cookies['page'].should == 0.to_s
     end
+
+    it "should set the weird site name for the next like" do
+      site = FactoryGirl.create(:weird_site)
+      get :index
+      response.cookies['weird_name'].should == site.name
+    end
   end
 
   describe "GET 'skip'" do

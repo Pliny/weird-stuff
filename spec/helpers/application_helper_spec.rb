@@ -12,6 +12,7 @@ describe ApplicationHelper do
       top_angle:    'angle04',
       bottom_angle: 'angle05',
       footer:       'bg-color05',
+      bar:          'bg-color03',
       font:         'color03',
       facebook:     'share-facebook03',
       twitter:      'share-twitter03'
@@ -24,6 +25,7 @@ describe ApplicationHelper do
       top_angle:    'angle13',
       bottom_angle: 'angle00',
       footer:       'bg-color00',
+      bar:          'bg-color12',
       font:         'color12',
       facebook:     'share-facebook12',
       twitter:      'share-twitter12'
@@ -36,6 +38,7 @@ describe ApplicationHelper do
       top_angle:    'angle00',
       bottom_angle: 'angle01',
       footer:       'bg-color01',
+      bar:          'bg-color13',
       font:         'initial-color',
       facebook:     'initial-share-facebook',
       twitter:      'initial-share-twitter'
@@ -48,6 +51,7 @@ describe ApplicationHelper do
       top_angle:    'angle00',
       bottom_angle: 'angle01',
       footer:       'bg-color01',
+      bar:          'bg-color13',
       font:         'color13',
       facebook:     'share-facebook13',
       twitter:      'share-twitter13'
@@ -60,6 +64,7 @@ describe ApplicationHelper do
       top_angle:    'angle01',
       bottom_angle: 'angle02',
       footer:       'bg-color02',
+      bar:          'bg-color00',
       font:         'color00',
       facebook:     'share-facebook00',
       twitter:      'share-twitter00'

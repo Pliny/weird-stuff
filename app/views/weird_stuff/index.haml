@@ -16,12 +16,22 @@
           %a.share.right.spacing1{ class: bg_color_of(@page)[:facebook], href: facebook_share_url, target: "_blank" }
     - if @page == 0
       .initial-description
+      .subtitle{ class: bg_color_of(@page)[:font] }
+        %h3="Do you have the balls"
+        %h3="to like it?"
     - else
-      .description{ class: bg_color_of(@page)[:font] }
-        Bla Bla Bla and things
-    .subtitle
-      %h3="Do you have the balls"
-      %h3="to like it?"
+      .description.inline{ class: bg_color_of(@page)[:font] }
+        .title-top.uppercase.inline
+          .bar.left.spacing3{ class: bg_color_of(@page)[:bar] }
+          %h1.left="you liked"
+          .bar.right{ class: bg_color_of(@page)[:bar] }
+        .title-middle.uppercase
+          %h2= @page_liked
+        .title-bottom.inline
+          .bar.left.spacing2{ class: bg_color_of(@page)[:bar] }
+          %h3.left="Got the balls"
+          .bar.right{ class: bg_color_of(@page)[:bar] }
+          %h3.inline="to keep going?"
   .angle-area{ class: bg_color_of(@page)[:footer] }
     .angle-container
       %svg{ width: "100%", height: "100%", xmlns: "http://www.w3.org/2000/svg", version: "1.1", viewBox: "0 0 1024 139", preserveAspectRatio: "none" }

@@ -23,9 +23,7 @@ body {
 
 header { padding: 24px 30px; }
 
-h3 {
-  color: $default-color;
-  font-size: 2.33em;
+h1,h2,h3 {
   padding: 0;
   margin: 0;
   font-weight: normal;
@@ -33,23 +31,21 @@ h3 {
   line-height: 125%;
 }
 
-.subtitle {
-  margin-top: 36px;
+h1 {
+  font-size: 4.8em;
+  letter-spacing: 0px;
 }
+h2 {
+  font-size: 9.3em;
+  line-height: 0.9em;
+}
+h3 { font-size: 2.33em; }
 
 .initial-description {
   background: image-url('likeweirdstuff-logo.png') no-repeat center center;
   width: 487px;
   height: 366px;
   display: inline-block;
-}
-
-.description {
-  width: 487px;
-  height: 266px;
-  font-size: 4em;
-  display: inline-block;
-  padding-top: 100px;
 }
 
 .facebook-like {
@@ -95,7 +91,6 @@ footer {
 #admin-notification {
   text-align: center;
   vertical-align: middle;
-  line-height: 36px;
   font-weight: bold;
   font-size: 1.33em;
 }
@@ -103,4 +98,37 @@ footer {
 .fb-like-container {
   overflow-y: hidden;
   padding-bottom: 24px;
+}
+
+.subtitle {
+  margin-top: 36px;
+}
+
+.title-top {
+  width: 700px;
+  font-family: $font2;
+
+  .bar {
+    width: 27%;
+    margin-top: 45px;
+  }
+}
+
+.title-middle {
+  min-height: 280px;
+  font-family: $font1;
+}
+
+.title-bottom {
+  width: 700px;
+
+  .bar {
+    width: 32%;
+    margin-top: 20px;
+  }
+}
+
+.bar {
+  height: 12px;
+  padding: 0;
 }

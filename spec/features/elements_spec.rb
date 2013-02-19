@@ -75,6 +75,12 @@ describe "Elements" do
           find('.page+.page').should have_selector('.description')
           subject.should_not have_selector('.page:last-child .initial-description')
         end
+
+        it "should show what page the user would have liked" do
+          click_button "SKIP"
+          find('.page+.page')
+          subject.should have_selector('.page:last-child .title-middle', text: @site.name)
+        end
       end
     end
   end

@@ -1,4 +1,18 @@
 
+@font-face {
+  font-family: 'OpenSans-CondBold';
+  font-style: normal;
+  font-weight: normal;
+  src: font-url('OpenSans-CondBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'OpenSans-ExtraBold';
+  font-style: normal;
+  font-weight: normal;
+  src: font-url('OpenSans-ExtraBold.ttf') format('truetype');
+}
+
 $color00: #ff0066;
 $color01: #66ff00;
 $color02: #0099ff;
@@ -20,11 +34,17 @@ $fb-like-bg-color1: #eceef5;
 $fb-like-bg-color2: #f4f6ff;
 $fb-like-color: #5571a9;
 $default-font: 'georgia', serif;
+$font1: 'OpenSans-ExtraBold';
+$font2: 'OpenSans-CondBold';
 $angle-overlap: -76px;
 
 .spacing1 { margin-right: 15px; }
+.spacing2 { margin-right: 8px; }
+.spacing3 { margin-right: 4px; }
 .right { float: right; }
+.left { float: left; }
 .inline { display: inline-block; }
+.uppercase { text-transform: uppercase; }
 
 .bg-color00 { background-color: $color00; }
 .bg-color01 { background-color: $color01; }

@@ -9,6 +9,9 @@ class WeirdStuffController < ApplicationController
 
   def index
     @weird_site = WeirdSite.random
+    @page_liked = cookies[:weird_name]
+    cookies[:weird_name] = @weird_site.name
+
     @admin = admin_user
 
     @page = cookies[:page].to_i
