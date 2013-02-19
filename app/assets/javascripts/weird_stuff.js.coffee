@@ -5,11 +5,13 @@ disableSharingLinks = () ->
   )
 
 weirdSiteLiked = (data, status, xhr) ->
-  # $('#facebook-like').remove()
-  # $('#fb-root').children().remove()
+  $('.facebook-like').remove()
   $('#content').append(data)
   disableSharingLinks()
-  window.animateScrollTo($('.page').last())
+  window.animateScrollTo($('.page').last(), 1000)
+  setTimeout((() ->
+    FB.XFBML.parse()
+  ), 1000)
 
 $(document).on('ready', disableSharingLinks )
 
