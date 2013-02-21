@@ -4,6 +4,15 @@ disableSharingLinks = () ->
     $link.onclick = () -> return false
   )
 
+getNextPage = () ->
+  $.ajax({
+    type:     'GET',
+    url:      $('#content').attr('url-for-next'),
+    data:     '',
+    success:  weirdSiteLiked,
+    dataType: 'html'
+  })
+
 weirdSiteLiked = (data, status, xhr) ->
   $('.facebook-like').remove()
   $('#content').append(data)
@@ -21,13 +30,7 @@ $(document).on('click', '.share-twitter,.share-facebook', () ->
   window.open($(this).attr('href'),'popUpWindow', 'height=350,width=800,left=' + left + ',top=' + top + ',resizable=yes,scrollbars=yes,toolbar=yes,menubar=no,location=no,directories=no,status=yes')
 )
 
-$(document).on('ajax:success', '.admin-skip', (evt, data, status, xhr) ->
-  $.ajax({
-    type:     'GET',
-    url:      $('#content').attr('url-for-next'),
-    data:     '',
-    success:  weirdSiteLiked,
-    dataType: 'html'
-  })
-)
+$(document).on('ajax:success', '.admin-skip', (evt, data, status, xhr) -> getNextPage())
+window.fbAsyncInit = () -> FB.Event.subscribe('edge.create', (response) -> getNextPage())
+
 

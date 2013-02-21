@@ -8,8 +8,10 @@ class ApplicationController < ActionController::Base
   end
 
   def update_state
-    cookies[:page] ||= -1
-    cookies[:page] = cookies[:page].to_i + 1
+    if request.xhr?
+      cookies[:page] ||= -1
+      cookies[:page] = cookies[:page].to_i + 1
+    end
   end
 
   def initialize_state

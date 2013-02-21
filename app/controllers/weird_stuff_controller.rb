@@ -3,8 +3,8 @@ class WeirdStuffController < ApplicationController
   respond_to :html
 
   before_filter :require_admin,    only: [ :skip, :reset ]
-  before_filter :update_state,     only: :skip
   before_filter :initialize_state, only: :index
+  before_filter :update_state,     only: :index
   before_filter :reset_state,      only: :reset
 
   def index

@@ -10,6 +10,12 @@ describe WeirdStuffController do
         get :index
         response.should be_success
       end
+
+      it "should not increment the page" do
+        request.cookies['page'] = 1.to_s
+        get :index
+        response.cookies['page'].should_not == 2.to_s
+      end
     end
 
     describe "asynchronously" do
@@ -17,6 +23,12 @@ describe WeirdStuffController do
       it "should be success" do
         xhr :get, :index
         response.should be_success
+      end
+
+      it "should increment the page index after liking a page" do
+        request.cookies['page'] = 1.to_s
+        xhr :get, :index
+        response.cookies['page'].should == 2.to_s
       end
     end
 
@@ -53,18 +65,12 @@ describe WeirdStuffController do
         get :skip
         response.should be_success
       end
-
-      it "should increment the page index after skipping a 'like'" do
-        request.cookies['page'] = 1.to_s
-        get :skip
-        response.cookies['page'].should == 2.to_s
-      end
     end
 
     describe "unknown user" do
 
       it "should redirect to root page" do
-        get :skip
+        xhr :get, :skip
         response.should redirect_to root_path
       end
     end
