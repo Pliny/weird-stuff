@@ -81,6 +81,12 @@ describe "Elements" do
           find('.page+.page')
           subject.should have_selector('.page:last-child .title-middle', text: @site.name)
         end
+
+        it "should have a link to the URL they would have liked" do
+          click_button "SKIP"
+          find('.page+.page')
+          subject.should have_selector(".page:last-child .title-middle a[href=\"#{@site.url}\"]", text: @site.name)
+        end
       end
     end
   end

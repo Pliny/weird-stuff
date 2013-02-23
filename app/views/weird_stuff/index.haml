@@ -18,7 +18,8 @@
           %h1.left="you liked"
           .bar.right{ class: bg_color_of(@page)[:bar] }
         .title-middle.uppercase
-          %h2= @page_liked
+          %a{ href: @page_liked[:url] }
+            %h2= @page_liked[:name]
         .title-bottom.inline
           .bar.left.spacing2{ class: bg_color_of(@page)[:bar] }
           %h3.left="Got the balls"

@@ -9,8 +9,9 @@ class WeirdStuffController < ApplicationController
 
   def index
     @weird_site = WeirdSite.random
-    @page_liked = cookies[:weird_name]
-    cookies[:weird_name] = @weird_site.try(:name)
+
+    set_info_for_current_page
+    set_info_for_next_page
 
     @admin = admin_user
 
@@ -33,5 +34,18 @@ class WeirdStuffController < ApplicationController
 
   def reset
     redirect_to root_path
+  end
+
+  private
+
+  def set_info_for_current_page
+    @page_liked ||= {}
+    @page_liked[:name] = cookies[:weird_name]
+    @page_liked[:url]  = cookies[:weird_url]
+  end
+
+  def set_info_for_next_page
+    cookies[:weird_name] = @weird_site.try(:name)
+    cookies[:weird_url]  = @weird_site.try(:url)
   end
 end
