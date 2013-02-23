@@ -24,6 +24,7 @@ class ApplicationController < ActionController::Base
 
   def reset_state
     session[:page] = nil
+    session[:current_id] = nil
   end
 
   def redirect_to_www

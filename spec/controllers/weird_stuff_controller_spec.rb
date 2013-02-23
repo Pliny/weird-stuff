@@ -16,6 +16,14 @@ describe WeirdStuffController do
         get :index
         session[:page].should_not == 2
       end
+
+      it "should not get the next weird site" do
+        site = Array.new
+        2.times { |i| site[i] = FactoryGirl.create(:weird_site) }
+        session[:current_id] = site[0].id
+        get :index
+        session[:current_id].should == site[0].id
+      end
     end
 
     describe "asynchronously" do
@@ -30,12 +38,21 @@ describe WeirdStuffController do
         xhr :get, :index
         session[:page].should == 2
       end
+
+      it "should get the next weird site" do
+        site = Array.new
+        2.times { |i| site[i] = FactoryGirl.create(:weird_site) }
+        session[:current_id] = site[0].id
+        xhr :get, :index
+        session[:current_id].should == site[1].id
+      end
     end
 
-    it "should set a random weird page to like" do
+    it "should get the next weird page to like" do
       site = FactoryGirl.create(:weird_site)
-      WeirdSite.should_receive(:random).once.and_return(site)
-      get :index
+      WeirdSite.should_receive(:next).once.with(site.id).and_return(FactoryGirl.create(:weird_site))
+      session[:current_id] = site.id
+      xhr :get, :index
     end
 
     it "should set the admin user if logged in" do
@@ -93,11 +110,18 @@ describe WeirdStuffController do
         response.should redirect_to root_path
       end
 
-      it "should reset the cookie state" do
+      it "should reset the page state" do
         session[:page] = 5.to_s
         get :reset
         session.keys.should include 'page'
         session[:page].should be_nil
+      end
+
+      it "should reset the current site state" do
+        session[:current_id] = 5.to_s
+        get :reset
+        session.keys.should include 'current_id'
+        session[:current_id].should be_nil
       end
     end
 

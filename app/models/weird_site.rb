@@ -16,4 +16,16 @@ class WeirdSite < ActiveRecord::Base
   def self.random
     self.first(order: "RANDOM()")
   end
+
+  def self.next id
+    if id.nil? || id.to_i == 0 || (next_obj = self.where("weird_sites.id > ?", id).first_asc).nil?
+      self.first_asc
+    else
+      next_obj
+    end
+  end
+
+  def self.first_asc
+    first(order: "weird_sites.id ASC")
+  end
 end

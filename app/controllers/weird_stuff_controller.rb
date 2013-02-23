@@ -8,14 +8,10 @@ class WeirdStuffController < ApplicationController
   before_filter :reset_state,      only: :reset
 
   def index
-    @weird_site = WeirdSite.random
-
     set_info_for_current_page
     set_info_for_next_page
 
     @admin = admin_user
-
-    @page = session[:page].to_i
 
     respond_with :index do |format|
       format.html do
@@ -42,10 +38,20 @@ class WeirdStuffController < ApplicationController
     @page_liked ||= {}
     @page_liked[:name] = session[:weird_name]
     @page_liked[:url]  = session[:weird_url]
+    @page = session[:page].to_i
+
+    @weird_site = begin
+                    if request.xhr?
+                      WeirdSite.next session[:current_id]
+                    else
+                      session[:current_id].present? ? WeirdSite.find(session[:current_id]) : WeirdSite.first_asc
+                    end
+                  end
   end
 
   def set_info_for_next_page
     session[:weird_name] = @weird_site.try(:name)
     session[:weird_url]  = @weird_site.try(:url)
+    session[:current_id] = @weird_site.try(:id)
   end
 end

@@ -49,4 +49,37 @@ describe WeirdSite do
       WeirdSite.random
     end
   end
+
+  describe ".next" do
+
+    it "should return the next weird site" do
+      site = Array.new
+      2.times { |i| site[i] = FactoryGirl.create(:weird_site) }
+      WeirdSite.next(site[0].id).should == site[1]
+    end
+
+    it "should return next weird site even if it's not sequential" do
+      site = Array.new
+      3.times { |i| site[i] = FactoryGirl.create(:weird_site) }
+      site[1].delete
+      WeirdSite.next(site[0].id).should == site[2]
+    end
+
+    it "should wrap to the beginning if it's at the end" do
+      site = Array.new
+      2.times { |i| site[i] = FactoryGirl.create(:weird_site) }
+      WeirdSite.next(site[1].id).should == site[0]
+    end
+
+    it "should not allow strings" do
+      site = FactoryGirl.create(:weird_site)
+      WeirdSite.next('blablabla').should == site
+    end
+
+    it "should handle the case when no id is given" do
+      site = Array.new
+      2.times { |i| site[i] = FactoryGirl.create(:weird_site) }
+      WeirdSite.next(nil).should == site[0]
+    end
+  end
 end
