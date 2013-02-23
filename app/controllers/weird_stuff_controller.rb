@@ -15,7 +15,7 @@ class WeirdStuffController < ApplicationController
 
     @admin = admin_user
 
-    @page = cookies[:page].to_i
+    @page = session[:page].to_i
 
     respond_with :index do |format|
       format.html do
@@ -40,12 +40,12 @@ class WeirdStuffController < ApplicationController
 
   def set_info_for_current_page
     @page_liked ||= {}
-    @page_liked[:name] = cookies[:weird_name]
-    @page_liked[:url]  = cookies[:weird_url]
+    @page_liked[:name] = session[:weird_name]
+    @page_liked[:url]  = session[:weird_url]
   end
 
   def set_info_for_next_page
-    cookies[:weird_name] = @weird_site.try(:name)
-    cookies[:weird_url]  = @weird_site.try(:url)
+    session[:weird_name] = @weird_site.try(:name)
+    session[:weird_url]  = @weird_site.try(:url)
   end
 end

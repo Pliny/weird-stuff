@@ -9,13 +9,13 @@ class ApplicationController < ActionController::Base
 
   def update_state
     if request.xhr?
-      cookies[:page] ||= -1
-      cookies[:page] = cookies[:page].to_i + 1
+      session[:page] ||= -1
+      session[:page] = session[:page].to_i + 1
     end
   end
 
   def initialize_state
-    cookies[:page] ||= 0
+    session[:page] ||= 0
   end
 
   def require_admin
@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def reset_state
-    cookies[:page] = nil
+    session[:page] = nil
   end
 
   def redirect_to_www

@@ -12,9 +12,9 @@ describe WeirdStuffController do
       end
 
       it "should not increment the page" do
-        request.cookies['page'] = 1.to_s
+        session[:page] = 1
         get :index
-        response.cookies['page'].should_not == 2.to_s
+        session[:page].should_not == 2
       end
     end
 
@@ -26,9 +26,9 @@ describe WeirdStuffController do
       end
 
       it "should increment the page index after liking a page" do
-        request.cookies['page'] = 1.to_s
+        session[:page] = 1
         xhr :get, :index
-        response.cookies['page'].should == 2.to_s
+        session[:page].should == 2
       end
     end
 
@@ -45,19 +45,19 @@ describe WeirdStuffController do
 
     it "should initialize the cookie state" do
       get :index
-      response.cookies['page'].should == 0.to_s
+      session[:page].should == 0
     end
 
     it "should set the weird site name for the next like" do
       site = FactoryGirl.create(:weird_site)
       get :index
-      response.cookies['weird_name'].should == site.name
+      session[:weird_name].should == site.name
     end
 
     it "should set the weird site URL ofr the next like" do
       site = FactoryGirl.create(:weird_site)
       get :index
-      response.cookies['weird_url'].should == site.url
+      session[:weird_url].should == site.url
     end
   end
 
@@ -94,10 +94,10 @@ describe WeirdStuffController do
       end
 
       it "should reset the cookie state" do
-        request.cookies[:page] = 5.to_s
+        session[:page] = 5.to_s
         get :reset
-        response.cookies.keys.should include 'page'
-        response.cookies['page'].should be_nil
+        session.keys.should include 'page'
+        session[:page].should be_nil
       end
     end
 
