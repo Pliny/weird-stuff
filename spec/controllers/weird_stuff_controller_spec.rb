@@ -33,6 +33,7 @@ describe WeirdStuffController do
         get :index
         session[:page].should == 0
         session[:current_id].should == @initial_site.id
+        session[:sites_liked].should == 0
       end
     end
 
@@ -116,6 +117,20 @@ describe WeirdStuffController do
         session.keys.should include 'current_id'
         session[:current_id].should be_nil
       end
+
+      it "should reset the liked sites state" do
+        session[:sites_liked] = 5.to_s
+        get :reset
+        session.keys.should include 'sites_liked'
+        session[:sites_liked].should be_nil
+      end
+
+      it "should reset the completed state" do
+        session[:completed] = true
+        get :reset
+        session.keys.should include 'completed'
+        session[:completed].should be_nil
+      end
     end
 
     describe "unknown user" do
@@ -146,6 +161,7 @@ describe WeirdStuffController do
       before do
         session[:page] = 0
         session[:current_id] = @initial_site.id
+        session[:sites_liked] = 0
       end
 
       it "should be success" do
@@ -180,6 +196,11 @@ describe WeirdStuffController do
         xhr :get, :next
       end
 
+      it "should keep track of how many sites the user has liked" do
+        xhr :get, :next
+        session[:sites_liked].should == 1
+      end
+
       describe "completed" do
 
         it "should indicate when all weird sites have been liked" do
@@ -190,6 +211,12 @@ describe WeirdStuffController do
         it "should not modify the current site" do
           xhr :get, :next
           session[:current_id].should == @initial_site.id
+        end
+
+        it "should only increment the sites liked once" do
+          xhr :get, :next
+          xhr :get, :next
+          session[:sites_liked].should == 1
         end
       end
     end

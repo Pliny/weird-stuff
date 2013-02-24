@@ -9,6 +9,7 @@ class ApplicationController < ActionController::Base
 
   def update_state
     session[:page] = session[:page].to_i + 1
+    session[:sites_liked] = (session[:sites_liked].to_i + 1) unless session[:completed] == true
     if (next_site = WeirdSite.find(session[:current_id]).next).nil?
       session[:completed] = true
     else
@@ -18,6 +19,7 @@ class ApplicationController < ActionController::Base
 
   def initialize_state
     session[:page] = 0
+    session[:sites_liked] = 0
     session[:current_id] ||= WeirdSite.first_asc.id
   end
 
@@ -31,8 +33,10 @@ class ApplicationController < ActionController::Base
   end
 
   def reset_state
-    session[:page]       = nil
-    session[:current_id] = nil
+    session[:page]        = nil
+    session[:current_id]  = nil
+    session[:sites_liked] = nil
+    session[:completed]   = nil
   end
 
   def redirect_to_www
