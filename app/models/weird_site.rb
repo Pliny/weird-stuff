@@ -16,4 +16,21 @@ class WeirdSite < ActiveRecord::Base
   def self.random
     self.first(order: "RANDOM()")
   end
+
+  def next
+    self.class.name.constantize.where("weird_sites.id > ?", self.id).first_asc
+  end
+
+  def previous
+    self.class.name.constantize.where("weird_sites.id < ?", self.id).first_desc
+
+  end
+
+  def self.first_asc
+    first(order: "weird_sites.id ASC")
+  end
+
+  def self.first_desc
+    first(order: "weird_sites.id DESC")
+  end
 end

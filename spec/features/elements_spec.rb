@@ -7,7 +7,8 @@ describe "Elements" do
   describe "index" do
 
     before do
-      @site = FactoryGirl.create(:weird_site)
+      @site = Array.new
+      2.times { |i| @site[i] = FactoryGirl.create(:weird_site) }
     end
 
     describe "without admin privileges" do
@@ -15,10 +16,11 @@ describe "Elements" do
       before { visit root_path }
 
       it { should have_selector('#fb-root') }
-      it { should have_selector(".facebook-like[data-href=\"#{@site.url}\"]") }
+      it { should have_selector(".facebook-like[data-href=\"#{@site[0].url}\"]") }
       it { should have_selector(".page") }
       it { should_not have_selector("form input[type=\"submit\"]") }
       it { should_not have_selector("#admin-notification") }
+      it { should have_selector("#content[url-for-next=\"#{next_url}\"]") }
 
       it { should have_selector('.initial-description') }
       it { should_not have_selector('.description') }
@@ -79,13 +81,23 @@ describe "Elements" do
         it "should show what page the user would have liked" do
           click_button "SKIP"
           find('.page+.page')
-          subject.should have_selector('.page:last-child .title-middle', text: @site.name)
+          subject.should have_selector('.page:last-child .title-middle', text: @site[0].name)
         end
 
         it "should have a link to the URL they would have liked" do
           click_button "SKIP"
           find('.page+.page')
-          subject.should have_selector(".page:last-child .title-middle a[href=\"#{@site.url}\"]", text: @site.name)
+          subject.should have_selector(".page:last-child .title-middle a[href=\"#{@site[0].url}\"]", text: @site[0].name)
+        end
+
+        it "should handle the case where all sites are liked" do
+          click_button "SKIP"
+          find('.page+.page')
+
+          within ".page:last-child" do
+            click_button "SKIP"
+          end
+          find('.page+.page+.page')
         end
       end
     end

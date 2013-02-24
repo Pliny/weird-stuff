@@ -49,4 +49,42 @@ describe WeirdSite do
       WeirdSite.random
     end
   end
+
+  describe "#next" do
+
+    it "should return the next weird site" do
+      site = Array.new
+      2.times { |i| site[i] = FactoryGirl.create(:weird_site) }
+      site[0].next.should == site[1]
+    end
+
+    it "should return next weird site even if it's not sequential" do
+      site = Array.new
+      3.times { |i| site[i] = FactoryGirl.create(:weird_site) }
+      site[1].delete
+      site[0].next.should == site[2]
+    end
+
+    it "should return nil when the last like has been done" do
+      site = Array.new
+      2.times { |i| site[i] = FactoryGirl.create(:weird_site) }
+      site[1].next.should == nil
+    end
+  end
+
+  describe "#previous" do
+
+    it "should return the previous weird site" do
+      site = Array.new
+      2.times { |i| site[i] = FactoryGirl.create(:weird_site) }
+      site[1].previous.should == site[0]
+    end
+
+    it "should return previous weird site even if it's not sequential" do
+      site = Array.new
+      3.times { |i| site[i] = FactoryGirl.create(:weird_site) }
+      site[1].delete
+      site[2].previous.should == site[0]
+    end
+  end
 end

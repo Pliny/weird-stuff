@@ -6,7 +6,7 @@
           %a.share.right{ class: bg_color_of(@page)[:twitter], href: twitter_share_url, target: "_blank" }
         %li
           %a.share.right.spacing1{ class: bg_color_of(@page)[:facebook], href: facebook_share_url, target: "_blank" }
-    - if @page == 0
+    - if @landing_page
       .initial-description
       .subtitle{ class: bg_color_of(@page)[:font] }
         %h3="Do you have the balls"
@@ -18,8 +18,8 @@
           %h1.left="you liked"
           .bar.right{ class: bg_color_of(@page)[:bar] }
         .title-middle.uppercase
-          %a{ href: @page_liked[:url] }
-            %h2= @page_liked[:name]
+          %a{ href: @weird_site_just_liked.url }
+            %h2= @weird_site_just_liked.name
         .title-bottom.inline
           .bar.left.spacing2{ class: bg_color_of(@page)[:bar] }
           %h3.left="Got the balls"
@@ -33,8 +33,8 @@
   .footer-area{ class: bg_color_of(@page)[:footer] }
     %footer{ class: bg_color_of(@page)[:footer] }
       .fb-like-container
-        .facebook-like.fb-like{ :'data-href' => @weird_site.url, :'data-send' => "false", :'data-width' => 450, :'data-show-faces'=> "false" }
-      - if @admin.present?
+        .facebook-like.fb-like{ :'data-href' => @weird_site_to_be_liked.url, :'data-send' => "false", :'data-width' => 450, :'data-show-faces'=> "false" }
+      - if controller.admin_user.present?
         .admin-form
           = button_to("SKIP", { action: 'skip' }, method: :get, remote: true, class: "ws-btn", form_class: "ws-form inline admin-skip")
           = button_to("RESET", { action: 'reset' }, method: :get, class: "ws-btn", form_class: "ws-form inline")

@@ -2,62 +2,50 @@ require 'spec_helper'
 
 describe WeirdStuffController do
 
+  before do
+    @initial_site = FactoryGirl.create(:weird_site)
+  end
+
   describe "GET 'index'" do
 
-    describe "synchronously" do
+    it "should be success" do
+      get :index
+      response.should be_success
+    end
 
-      it "should be success" do
+    it "should not increment the page" do
+      session[:page] = 1
+      get :index
+      session[:page].should_not == 2
+    end
+
+    it "should not get the next weird site" do
+      site = Array.new
+      2.times { |i| site[i] = FactoryGirl.create(:weird_site) }
+      session[:current_id] = site[0].id
+      get :index
+      session[:current_id].should == site[0].id
+    end
+
+    describe "new user" do
+
+      it "should initialize the cookie state" do
         get :index
-        response.should be_success
+        session[:page].should == 0
+        session[:current_id].should == @initial_site.id
       end
+    end
 
-      it "should not increment the page" do
-        session[:page] = 1
+    describe "returning user" do
+
+      let(:site) { FactoryGirl.create(:weird_site) }
+
+      it "should remember where they left off" do
+        session[:current_id] = site.id
         get :index
-        session[:page].should_not == 2
+        session[:page].should == 0
+        session[:current_id].should == site.id
       end
-    end
-
-    describe "asynchronously" do
-
-      it "should be success" do
-        xhr :get, :index
-        response.should be_success
-      end
-
-      it "should increment the page index after liking a page" do
-        session[:page] = 1
-        xhr :get, :index
-        session[:page].should == 2
-      end
-    end
-
-    it "should set a random weird page to like" do
-      site = FactoryGirl.create(:weird_site)
-      WeirdSite.should_receive(:random).once.and_return(site)
-      get :index
-    end
-
-    it "should set the admin user if logged in" do
-      subject.should_receive(:admin_user).once.and_return(nil)
-      get :index
-    end
-
-    it "should initialize the cookie state" do
-      get :index
-      session[:page].should == 0
-    end
-
-    it "should set the weird site name for the next like" do
-      site = FactoryGirl.create(:weird_site)
-      get :index
-      session[:weird_name].should == site.name
-    end
-
-    it "should set the weird site URL ofr the next like" do
-      site = FactoryGirl.create(:weird_site)
-      get :index
-      session[:weird_url].should == site.url
     end
   end
 
@@ -67,17 +55,39 @@ describe WeirdStuffController do
 
       before { login :admin }
 
-      it "should be success" do
-        get :skip
-        response.should be_success
+      describe "synchronous fetch" do
+
+        it "should return unauthorized" do
+          get :skip
+          response.status.should == 401
+        end
+      end
+
+      describe "asynchronous fetch" do
+
+        it "should be success" do
+          xhr :get, :skip
+          response.should be_success
+        end
       end
     end
 
     describe "unknown user" do
 
-      it "should redirect to root page" do
-        xhr :get, :skip
-        response.should redirect_to root_path
+      describe "synchronous fetch" do
+
+        it "should redirect to root page" do
+          xhr :get, :skip
+          response.status.should == 401
+        end
+      end
+
+      describe "asynchronous fetch" do
+
+        it "should redirect to root page" do
+          xhr :get, :skip
+          response.status.should == 401
+        end
       end
     end
   end
@@ -93,11 +103,18 @@ describe WeirdStuffController do
         response.should redirect_to root_path
       end
 
-      it "should reset the cookie state" do
+      it "should reset the page state" do
         session[:page] = 5.to_s
         get :reset
         session.keys.should include 'page'
         session[:page].should be_nil
+      end
+
+      it "should reset the current site state" do
+        session[:current_id] = 5.to_s
+        get :reset
+        session.keys.should include 'current_id'
+        session[:current_id].should be_nil
       end
     end
 
@@ -105,7 +122,75 @@ describe WeirdStuffController do
 
       it "should redirect to root page and not change state" do
         get :reset
-        response.should redirect_to root_path
+        response.status.should == 401
+      end
+    end
+  end
+
+  describe "GET 'next'" do
+
+    it { should respond_to :next }
+
+    describe "synchronously" do
+
+      it "should return unauthorized" do
+        get :next
+        response.status.should == 401
+      end
+    end
+
+    describe "asynchronously" do
+
+      let(:site) { FactoryGirl.create(:weird_site) }
+
+      before do
+        session[:page] = 0
+        session[:current_id] = @initial_site.id
+      end
+
+      it "should be success" do
+        xhr :get, :next
+        response.should be_success
+      end
+
+      it "should increment the page index after liking a page" do
+        site
+        xhr :get, :next
+        session[:page].should == 1
+      end
+
+      it "should get the next weird site" do
+        site
+        xhr :get, :next
+        session[:current_id].should == site.id
+      end
+
+      it "should load up the current page to like" do
+        WeirdSite.should_receive(:find).twice.with(session[:current_id]).and_return site
+        xhr :get, :next
+      end
+
+      it "should fetch the page to like" do
+        WeirdSite.any_instance.should_receive(:next).once.and_return site
+        xhr :get, :next
+      end
+
+      it "should load up the page previously liked" do
+        WeirdSite.any_instance.should_receive(:previous).once.and_return @initial_site
+        xhr :get, :next
+      end
+
+      describe "completed" do
+
+        it "should indicate when all weird sites have been liked" do
+          xhr :get, :next
+          session[:completed].should == true
+        end
+
+        it "should not modify the current site" do
+          xhr :get, :next
+          session[:current_id].should == @initial_site.id
+        end
       end
     end
   end
