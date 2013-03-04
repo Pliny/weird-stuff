@@ -26,6 +26,8 @@
           .bar.right{ class: bg_color_of(@page)[:bar] }
           %h3.inline="to keep going?"
   .angle-area{ class: bg_color_of(@page)[:footer] }
+    - if @landing_page
+      .vertical-animate
     .angle-container
       %svg{ width: "100%", height: "100%", xmlns: "http://www.w3.org/2000/svg", version: "1.1", viewBox: "0 0 1024 139", preserveAspectRatio: "none" }
         %path{ class: bg_color_of(@page)[:top_angle], d: "m250 76 h500 l-250 70 z" }
