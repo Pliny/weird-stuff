@@ -18,7 +18,7 @@
           %h1.left="you liked"
           .bar.right{ class: bg_color_of(@page)[:bar] }
         .title-middle.uppercase
-          %a{ href: @weird_site_just_liked.url, target: '_blank' }
+          %a.middle-table-cell{ href: @weird_site_just_liked.url, target: '_blank' }
             %h2= @weird_site_just_liked.name
         .title-bottom.inline
           .bar.left.spacing2{ class: bg_color_of(@page)[:bar] }
