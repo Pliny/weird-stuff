@@ -1,12 +1,13 @@
 @import "helpers";
 
-ul { list-style-type: none; }
+ul { list-style-type: none; margin: 6px 0 0 0; }
 
 a { text-decoration: none; color: inherit; }
+a:hover { color: black; }
 
 body {
   font-family: $default-font;
-  background-color: black;
+  background-color: $color01;
   text-align: center;
   margin: 0;
 }
@@ -15,12 +16,25 @@ body {
 
 .nav-container {
   height: 33px;
-  margin-bottom: 32px;
+  margin-bottom: 0;
 }
 
-.share {
+.share-facebook {
   height: 33px;
   width: 33px;
+}
+
+.share-facebook:hover {
+  background: image-url('Button_facebook_overlay_highscorescreen.png') no-repeat center center
+}
+
+.share-twitter {
+  height: 33px;
+  width: 44px;
+}
+
+.share-twitter:hover {
+  background: image-url('Button_twitter_highscorescreen_overlay.png') no-repeat center center
 }
 
 header { padding: 24px 30px; }
@@ -39,7 +53,7 @@ h1 {
 }
 h2 {
   font-size: 9.3em;
-  line-height: 0.9em;
+  line-height: 0.85em;
 }
 h3 { font-size: 2.33em; }
 
@@ -57,7 +71,7 @@ h3 { font-size: 2.33em; }
 }
 
 .angle-container {
-  height: 139px;
+  height: 138px;
   position: relative;
   top: $angle-overlap;
   background-repeat: no-repeat;
