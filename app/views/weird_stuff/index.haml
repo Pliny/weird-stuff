@@ -3,9 +3,9 @@
     .nav-container
       %ul
         %li
-          %a.share.right{ class: bg_color_of(@page)[:twitter], href: twitter_share_url, target: "_blank" }
+          %a.share.share-twitter.right{ class: bg_color_of(@page)[:twitter], href: twitter_share_url, target: "_blank" }
         %li
-          %a.share.right.spacing1{ class: bg_color_of(@page)[:facebook], href: facebook_share_url, target: "_blank" }
+          %a.share.share-facebook.right.spacing1{ class: bg_color_of(@page)[:facebook], href: facebook_share_url, target: "_blank" }
     - if @landing_page
       .initial-description
       .subtitle{ class: bg_color_of(@page)[:font] }
