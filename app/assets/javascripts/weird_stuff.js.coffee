@@ -23,6 +23,13 @@ weirdSiteLiked = (data, status, xhr) ->
   ), 1000)
 
 $(document).on('ready', disableSharingLinks )
+$(document).on('ready', () ->
+  setInterval(() ->
+    $div = $('.vertical-animate')
+    $div.before($div.clone(true)).remove()
+  , 12000
+  )
+)
 
 $(document).on('click', '.share-twitter,.share-facebook', () ->
   left = window.screenX + 256
