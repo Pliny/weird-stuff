@@ -201,6 +201,17 @@ describe WeirdStuffController do
         session[:sites_liked].should == 1
       end
 
+      describe "with browser size given" do
+        render_views
+
+        before { site }
+
+        it "should dynamically size the newly rendered page" do
+          xhr :get, :next, vsize: 900.to_s
+          response.body.should have_selector('.page[style="min-height: 900px;"]')
+        end
+      end
+
       describe "completed" do
 
         it "should indicate when all weird sites have been liked" do

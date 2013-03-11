@@ -7,7 +7,7 @@ disableSharingLinks = () ->
 getNextPage = () ->
   $.ajax({
     type:     'GET',
-    url:      $('#content').attr('url-for-next'),
+    url:      $('#content').attr('url-for-next') + "?vsize=" + $(window).height(),
     data:     '',
     success:  weirdSiteLiked,
     dataType: 'html'

@@ -15,4 +15,8 @@ module ApplicationHelper
     }
   end
 
+  def size_page(vsize)
+    return '' if vsize.blank?
+    "min-height: #{vsize}px;"
+  end
 end

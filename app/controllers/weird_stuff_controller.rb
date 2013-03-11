@@ -20,6 +20,7 @@ class WeirdStuffController < ApplicationController
     @weird_site_just_liked  = @weird_site_to_be_liked.previous
     @page = session[:page]
     @completed = session[:completed]
+    @browser_vsize = params[:vsize].to_i
     render :index, layout: false
   end
 
