@@ -1,1 +1,5 @@
-rvm --create ruby-1.9.3-p327@weird-stuff
+if [[ -s "/usr/local/rvm/environments/ruby-1.9.3-p327@weird-stuff" ]] ; then
+  . "/usr/local/rvm/environments/ruby-1.9.3-p327@weird-stuff"
+else
+  rvm --create ruby-1.9.3-p327@weird-stuff
+fi
