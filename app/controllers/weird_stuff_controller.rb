@@ -2,7 +2,6 @@ class WeirdStuffController < ApplicationController
 
   respond_to :html
 
-  before_filter :require_admin,    only: [ :skip, :reset ]
   before_filter :async_only,       only: [ :skip, :next  ]
   before_filter :update_state,     only: :next
   before_filter :initialize_state, only: :index

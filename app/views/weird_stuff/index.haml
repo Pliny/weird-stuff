@@ -37,7 +37,6 @@
     %footer{ class: bg_color_of(@page)[:footer] }
       .fb-like-container
         .facebook-like.fb-like{ :'data-href' => @weird_site_to_be_liked.url, :'data-send' => "false", :'data-width' => 450, :'data-show-faces'=> "false" }
-      - if controller.admin_user.present?
-        .admin-form
-          = button_to("SKIP", { action: 'skip' }, method: :get, remote: true, class: "ws-btn", form_class: "ws-form inline admin-skip")
-          = button_to("RESET", { action: 'reset' }, method: :get, class: "ws-btn", form_class: "ws-form inline")
+      .admin-form
+        = button_to("SKIP", { action: 'skip' }, method: :get, remote: true, class: "ws-btn", form_class: "ws-form inline admin-skip")
+        = button_to("RESET", { action: 'reset' }, method: :get, class: "ws-btn", form_class: "ws-form inline")

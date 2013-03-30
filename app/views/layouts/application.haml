@@ -33,7 +33,5 @@
       }(document, 'script', 'facebook-jssdk'));
   %body
     #fb-root
-    - if controller.admin_user.present?
-      #admin-notification.bg-color01="Hi #{controller.admin_user.first_name}, press 'SKIP' to go to the next page"
     #content{ :'url-for-next' => next_url }
       = yield

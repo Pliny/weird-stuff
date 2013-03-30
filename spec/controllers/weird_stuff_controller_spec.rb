@@ -72,25 +72,6 @@ describe WeirdStuffController do
         end
       end
     end
-
-    describe "unknown user" do
-
-      describe "synchronous fetch" do
-
-        it "should redirect to root page" do
-          xhr :get, :skip
-          response.status.should == 401
-        end
-      end
-
-      describe "asynchronous fetch" do
-
-        it "should redirect to root page" do
-          xhr :get, :skip
-          response.status.should == 401
-        end
-      end
-    end
   end
 
   describe "GET 'reset'" do
@@ -130,14 +111,6 @@ describe WeirdStuffController do
         get :reset
         session.keys.should include 'completed'
         session[:completed].should be_nil
-      end
-    end
-
-    describe "unknown user" do
-
-      it "should redirect to root page and not change state" do
-        get :reset
-        response.status.should == 401
       end
     end
   end

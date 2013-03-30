@@ -18,7 +18,6 @@ describe "Elements" do
       it { should have_selector('#fb-root') }
       it { should have_selector(".facebook-like[data-href=\"#{@site[0].url}\"]") }
       it { should have_selector(".page") }
-      it { should_not have_selector("form input[type=\"submit\"]") }
       it { should_not have_selector("#admin-notification") }
       it { should have_selector("#content[url-for-next=\"#{next_url}\"]") }
 
@@ -34,7 +33,6 @@ describe "Elements" do
       end
 
       it { should have_selector("form input[type=\"submit\"][value=\"SKIP\"]") }
-      it { should have_selector("#admin-notification") }
       it { should have_selector("form input[type=\"submit\"][value=\"RESET\"]")}
 
       describe "and javascript enabled", js: true do
