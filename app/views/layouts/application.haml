@@ -34,4 +34,12 @@
   %body
     #fb-root
     #content{ :'url-for-next' => next_url }
+      #dim
+      #shutdown
+        %h3
+          Unfortunately Facebook shut us down. We're wondering why ... ;)
+        %h3
+          But check out how it worked
+          =link_to("here", "#")
+          ="."
       = yield

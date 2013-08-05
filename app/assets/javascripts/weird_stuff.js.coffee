@@ -22,13 +22,18 @@ weirdSiteLiked = (data, status, xhr) ->
     FB.XFBML.parse()
   ), 1000)
 
+animateArrow = () ->
+  $div = $('.vertical-animate')
+  $div.before($div.clone(true)).remove()
+
 $(document).on('ready', disableSharingLinks )
-$(document).on('ready', () ->
-  setInterval(() ->
-    $div = $('.vertical-animate')
-    $div.before($div.clone(true)).remove()
-  , 12000
-  )
+$(document).on('click', '#shutdown a', () ->
+  $('#shutdown,#dim').remove()
+  $('.vertical-animate').removeClass('hidden')
+
+  animateArrow()
+
+  setInterval(animateArrow, 12000)
 )
 
 $(document).on('click', '.share-twitter,.share-facebook', () ->

@@ -23,6 +23,8 @@ describe "Elements" do
 
       it { should have_selector('.initial-description') }
       it { should_not have_selector('.description') }
+      it { should have_selector('#dim') }
+      it { should have_selector('#shutdown') }
     end
 
     describe "with admin privileges" do
@@ -38,7 +40,10 @@ describe "Elements" do
       describe "and javascript enabled", js: true do
         self.use_transactional_fixtures = false
 
-        before { find(".admin-form") }
+        before do
+          click_link "here"
+          find(".admin-form")
+        end
 
         after do
           # Do not delete data in schema table
